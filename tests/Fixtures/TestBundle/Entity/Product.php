@@ -34,4 +34,12 @@ class Product
      * @ORM\Column(type="json_document", options={"jsonb": true})
      */
     public $attributes;
+
+    /**
+     * @return string
+     */
+    public static function getClass()
+    {
+        return __CLASS__;
+    }
 }

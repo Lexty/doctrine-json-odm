@@ -35,6 +35,14 @@ class Foo
      */
     private $misc;
 
+    /**
+     * @return string
+     */
+    public static function getClass()
+    {
+        return __CLASS__;
+    }
+
     public function getId()
     {
         return $this->id;

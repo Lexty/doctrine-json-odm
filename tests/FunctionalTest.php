@@ -60,13 +60,13 @@ class FunctionalTest extends KernelTestCase
         $product->name = 'My product';
         $product->attributes = $attributes;
 
-        $manager = self::$kernel->getContainer()->get('doctrine')->getManagerForClass(Product::class);
+        $manager = self::$kernel->getContainer()->get('doctrine')->getManagerForClass(Product::getClass());
         $manager->persist($product);
         $manager->flush();
 
         $manager->clear();
 
-        $retrievedProduct = $manager->find(Product::class, $product->id);
+        $retrievedProduct = $manager->find(Product::getClass(), $product->id);
         $this->assertEquals($attributes, $retrievedProduct->attributes);
     }
 
@@ -86,13 +86,13 @@ class FunctionalTest extends KernelTestCase
         $foo->setName('Foo');
         $foo->setMisc($misc);
 
-        $manager = self::$kernel->getContainer()->get('doctrine')->getManagerForClass(Foo::class);
+        $manager = self::$kernel->getContainer()->get('doctrine')->getManagerForClass(Foo::getClass());
         $manager->persist($foo);
         $manager->flush();
 
         $manager->clear();
 
-        $foo = $manager->find(Foo::class, $foo->getId());
+        $foo = $manager->find(Foo::getClass(), $foo->getId());
         $this->assertEquals($misc, $foo->getMisc());
     }
 
@@ -112,13 +112,13 @@ class FunctionalTest extends KernelTestCase
         $foo->setName('foo');
         $foo->setMisc($misc);
 
-        $manager = self::$kernel->getContainer()->get('doctrine')->getManagerForClass(Foo::class);
+        $manager = self::$kernel->getContainer()->get('doctrine')->getManagerForClass(Foo::getClass());
         $manager->persist($foo);
         $manager->flush();
 
         $manager->clear();
 
-        $foo = $manager->find(Foo::class, $foo->getId());
+        $foo = $manager->find(Foo::getClass(), $foo->getId());
         $this->assertEquals($misc, $foo->getMisc());
     }
 }
