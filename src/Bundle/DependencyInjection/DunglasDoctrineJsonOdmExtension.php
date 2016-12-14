@@ -25,7 +25,7 @@ final class DunglasDoctrineJsonOdmExtension extends Extension implements Prepend
      */
     public function prepend(ContainerBuilder $container)
     {
-        if (empty($frameworkConfiguration = $container->getExtensionConfig('framework'))) {
+        if (count($frameworkConfiguration = $container->getExtensionConfig('framework')) === 0) {
             return;
         }
 
