@@ -32,7 +32,7 @@ final class ObjectNormalizer implements NormalizerInterface, DenormalizerInterfa
     public function __construct(NormalizerInterface $objectNormalizer)
     {
         if (!$objectNormalizer instanceof DenormalizerInterface) {
-            throw new \InvalidArgumentException(sprintf('The normalizer used must implement the "%s" interface.', DenormalizerInterface::class));
+            throw new \InvalidArgumentException('The normalizer used must implement the "Symfony\Component\Serializer\Normalizer\DenormalizerInterface" interface.');
         }
 
         $this->objectNormalizer = $objectNormalizer;
@@ -93,7 +93,7 @@ final class ObjectNormalizer implements NormalizerInterface, DenormalizerInterfa
     {
         if (!$serializer instanceof NormalizerInterface || !$serializer instanceof DenormalizerInterface) {
             throw new \InvalidArgumentException(
-                sprintf('The injected serializer must implement "%s" and "%s".', NormalizerInterface::class, DenormalizerInterface::class)
+                'The injected serializer must implement "Symfony\Component\Serializer\Normalizer\NormalizerInterface" and "Symfony\Component\Serializer\Normalizer\DenormalizerInterface".'
             );
         }
 

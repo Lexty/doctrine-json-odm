@@ -23,7 +23,7 @@ final class DunglasDoctrineJsonOdmBundle extends Bundle
     public function __construct()
     {
         if (!Type::hasType('json_document')) {
-            Type::addType('json_document', JsonDocumentType::class);
+            Type::addType('json_document', JsonDocumentType::getClass());
         }
     }
 

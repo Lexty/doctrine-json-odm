@@ -41,6 +41,14 @@ final class JsonDocumentType extends JsonArrayType
     private $deserializationContext = [];
 
     /**
+     * @return string
+     */
+    public static function getClass()
+    {
+        return __CLASS__;
+    }
+
+    /**
      * Sets the serializer to use.
      *
      * @param SerializerInterface $serializer
@@ -60,7 +68,7 @@ final class JsonDocumentType extends JsonArrayType
     private function getSerializer()
     {
         if (null === $this->serializer) {
-            throw new \RuntimeException(sprintf('An instance of "%s" must be available. Call the "setSerializer" method.', SerializerInterface::class));
+            throw new \RuntimeException('An instance of "Symfony\Component\Serializer\SerializerInterface" must be available. Call the "setSerializer" method.');
         }
 
         return $this->serializer;
